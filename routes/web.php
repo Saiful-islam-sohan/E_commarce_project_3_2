@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/dashboard', function () {
+    return view('Admin.pages.dashboard');
 });
+Route::get('/', function () {
+  return view('frontend.pages.home');
+});
+
+// Route::get('/', [AdminController::class,'index']);
+
