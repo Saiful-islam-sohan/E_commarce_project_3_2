@@ -40,8 +40,8 @@
                 <!-- mobile menu start -->
                 <nav>
                     <ul class="mobile-menu">
-                        <li class="menu-item-has-children"><span class="menu-expand"></span><a href="index.html">Home</a></li>
-                        <li class="menu-item-has-children"><span class="menu-expand"></span><a href="shop.html">shop</a></li>
+                        <li class="menu-item-has-children"><span class="menu-expand"></span><a href="/">Home</a></li>
+                        <li class="menu-item-has-children"><span class="menu-expand"></span><a href="{{route('shope.page')}}">shop</a></li>
                         <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Our Collections</a>
                             <ul class="dropdown">
                                 <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Women's Fashion</a>
