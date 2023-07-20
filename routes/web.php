@@ -2,8 +2,9 @@
 
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\LoginController;
+use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\DashboardController;
-use App\Http\Controllers\CategoryController;
+
 use App\Http\Controllers\shopeController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,9 +19,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/shop', function () {
-//     return view('frontend.pages.shope');
-// });
+
+
 Route::get('/', function () {
   return view('frontend.pages.home');
 });
@@ -37,6 +37,8 @@ Route::get('/shop',[shopeController::class,'index'])->name('shope.page');
               Route::middleware(['auth'])->group(function(){
                   Route::get('dashboard',[DashboardController::class,'dashboard'])->name('admin.dashboard');
                });
+
+        Route::resource('categories',CategoryController::class);
 
 
 
