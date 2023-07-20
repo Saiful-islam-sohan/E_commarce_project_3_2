@@ -9,6 +9,10 @@
     .dataTables_length{
         padding: 20px 0;
     }
+    .img{
+        height: 90px;
+        width: 90px;
+    }
 </style>
 @endpush
 
@@ -40,7 +44,7 @@
                     @foreach ($categories as $category)
                         <tr>
                             <th scope="row">{{ $categories->firstItem()+$loop->index }}</th>
-                            <td><img src="{{ asset('uploads/category') }}/{{ $category->category_image }}" alt="" class="img-fluid rounded h-50 w-50"></td>
+                            <td><img src="{{asset('uploads/category')}}/{{$category->category_image}}" alt="" class="img-fluid rounded img"></td>
                             <td>{{ $category->updated_at->format('d M Y') }}</td>
                             <td>{{ $category->title }}</td>
                             <td>{{ $category->slug }}</td>

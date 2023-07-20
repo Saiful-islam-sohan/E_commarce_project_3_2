@@ -22,7 +22,8 @@ class CategoryUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title'=>'bail|required|string'
+            'title'=>'bail|required|string',
+            'category_image' => 'nullable|image'
         ];
     }
 }

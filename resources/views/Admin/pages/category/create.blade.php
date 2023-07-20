@@ -20,7 +20,7 @@
 <div class="col-12 mt-5">
     <div class="card">
         <div class="card-body">
-            <form action="{{route('categories.store')}}" method="post">
+            <form action="{{route('categories.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
 
                 <div class="mb-3">
@@ -29,6 +29,16 @@
                         is-invalid
                     @enderror" placeholder="enter category title" id="">
                     @error('title')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+
+                <div class="mb-3">
+                    <label for="category-image" class="form-label">Category Image</label>
+                    <input type="file" class="form-control dropify" name="category_image" id="">
+                    @error('category_image')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -55,3 +65,11 @@
 </div>
 </div>
 @endsection
+@push('admin_script')
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js" integrity="sha512-8QFTrG0oeOiyWo/VM9Y8kgxdlCryqhIxVeRpWSezdRRAvarxVtwLnGroJgnVW9/XBRduxO/z1GblzPrMQoeuew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $('.dropify').dropify();
+</script>
+
+@endpush

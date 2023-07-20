@@ -22,7 +22,8 @@ class CategoryStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title'=>'bail|required|string|unique:categories,title'
+            'title'=>'bail|required|string|unique:categories,title',
+            'category_image'=>'bail|required|image'
         ];
     }
 }
