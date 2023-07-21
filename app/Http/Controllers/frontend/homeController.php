@@ -22,4 +22,6 @@ class homeController extends Controller
 
         return view('frontend.pages.home',compact('categories'));
     }
+
+
 }

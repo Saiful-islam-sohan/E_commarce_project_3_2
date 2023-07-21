@@ -548,12 +548,17 @@
                         <h5 class="section-title style-1 mb-30 wow fadeIn animated">Category</h5>
                         <ul class="categories">
 
-                            <li><a href="shop.html">shirt</a></li>
-                            <li><a href="shop.html">pant</a></li>
+                        @foreach ($categories as $category )
+
+                        <li><a href="shop.html">{{$category->title}}</a></li>
+                        @endforeach
+
+
+                            {{-- <li><a href="shop.html">pant</a></li>
                             <li><a href="shop.html">keybord</a></li>
                             <li><a href="shop.html">mouse</a></li>
                             <li><a href="shop.html">monitor</a></li>
-                            <li><a href="shop.html">shirt</a></li>
+                            <li><a href="shop.html">shirt</a></li> --}}
 
 
 
