@@ -177,7 +177,7 @@
                         <!-- Product Image Section -->
 
                         <!-- Product Multiple Image Section -->
-                        {{-- <div class="col-12 mb-3">
+                        <div class="col-12 mb-3">
                             <label for="product-image" class="form-label">Product Multiple Image</label>
                             <input type="file" class="form-control" multiple name="product_multiple_image[]">
                             @error('product_multiple_image')
@@ -185,7 +185,7 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
-                        </div> --}}
+                        </div>
                         <!-- Product Multiple Image Section -->
 
                         <div class="col-6 mb-3 form-check form-switch">
