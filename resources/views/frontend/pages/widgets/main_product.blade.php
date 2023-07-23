@@ -27,7 +27,7 @@
                         <div class="product-cart-wrap mb-30">
                             <div class="product-img-action-wrap">
                                 <div class="product-img product-img-zoom">
-                                    <a href="product-details.html">
+                                    <a href="{{route('singleproduct',['product_slug' =>$product->slug])}}">
                                         <img class="default-img" src="{{asset('uploads/product_photos')}}/{{$product->product_image}}" alt="">
                                         {{-- <img class="hover-img" src="{{asset('user')}}/assets/imgs/shop/product-1-2.jpg" alt=""> --}}
                                     </a>
@@ -45,7 +45,7 @@
                                 <div class="product-category">
                                     <a href="shop.html">Clothing</a>
                                 </div>
-                                <h2><a href="product-details.html">{{$product->name}}</a></h2>
+                                <h2><a href="{{route('singleproduct',['product_slug' =>$product->slug])}}">{{$product->name}}</a></h2>
                                 <div class="rating-result" title="90%">
                                     <span>
                                         @for ($i=0;$i<$product->product_rating;$i++)

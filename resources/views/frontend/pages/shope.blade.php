@@ -19,7 +19,7 @@
                 <div class="col-lg-9">
                     <div class="shop-product-fillter">
                         <div class="totall-product">
-                            <p> We found <strong class="text-brand">688</strong> items for you!</p>
+                            <p> We found <strong class="text-brand">235</strong> items for you!</p>
                         </div>
                         <div class="sort-by-product-area">
                             <div class="sort-by-cover mr-10">
@@ -71,7 +71,7 @@
                                 <div class="product-img-action-wrap">
                                     <div class="product-img product-img-zoom">
                                         <a href="product-details.html">
-                                            <img class="default-img" src="{{asset('uploads/product_photos')}}/{{$product->product_image}}" alt="">
+                                            <img class="{{route('singleproduct',['product_slug' =>$product->slug])}}" src="{{asset('uploads/product_photos')}}/{{$product->product_image}}" alt="">
                                             {{-- <img class="hover-img" src="{{asset('user')}}/assets/imgs/shop/product-2-2.jpg" alt=""> --}}
                                         </a>
                                     </div>
@@ -89,7 +89,7 @@
                                     <div class="product-category">
                                         <a href="shop.html">Music</a>
                                     </div>
-                                    <h2><a href="product-details.html">{{$product->name}}</a></h2>
+                                    <h2><a href="{{route('singleproduct',['product_slug' =>$product->slug])}}">{{$product->name}}</a></h2>
                                     <div class="rating-result" title="90%">
                                         <span>
                                             @for ($i=0;$i<$product->product_rating;$i++)
@@ -125,14 +125,31 @@
                         <div class="col-lg-12 col-mg-6"></div>
                         <div class="col-lg-12 col-mg-6"></div>
                     </div>
+
+                    {{-- use in category --}}
                     <div class="widget-category mb-30">
                         <h5 class="section-title style-1 mb-30 wow fadeIn animated">Category</h5>
                         <ul class="categories">
 
                         @foreach ($categories as $category )
 
-                        <li><a href="shop.html">{{$category->title}}</a></li>
+                        <li><a href="shop.html  {{$category->slug}}">{{$category->title}}</a></li>
                         @endforeach
+
+
+                        {{-- use the match of category --}}
+
+                        {{-- @foreach ($categories as $category)
+                        <div class="tab-pane" id="{{$category->slug}}">
+                            <ul class="row">
+                                @foreach ($category->products as $product)
+
+                                @endforeach
+
+                            </ul>
+                        </div>
+
+                        @endforeach --}}
 
 
                             {{-- <li><a href="shop.html">pant</a></li>
@@ -243,6 +260,8 @@
                 </div>
             </div>
         </div>
+
+
     </section>
 </main>
 

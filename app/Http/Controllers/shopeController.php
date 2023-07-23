@@ -10,7 +10,7 @@ class shopeController extends Controller
 {
     public function index(){
         $categories = Category::where('is_active', 1)
-        ->with('')
+        ->with('products')
         ->latest('id')
         ->limit(10)
         ->select(['id', 'title','slug'])

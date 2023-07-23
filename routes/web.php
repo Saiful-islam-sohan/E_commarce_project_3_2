@@ -29,6 +29,9 @@ Route::prefix('')->group(function(){
 Route::get('/',[homeController::class,'home'])->name('home');
 Route::get('/shop',[shopeController::class,'index'])->name('shope.page');
 
+Route::get('/single product /{product_slug}',[homeController::class,'ProductDatiles'])->name('singleproduct');
+
+
 });
 
 

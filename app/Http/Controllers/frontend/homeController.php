@@ -29,5 +29,19 @@ class homeController extends Controller
         return view('frontend.pages.home',compact('categories','products'));
     }
 
+    public function ProductDatiles($product_slug){
+        $product=Product::whereSlug($product_slug)
+        ->with('category','productImages')
+        ->first();
+
+        $related_product=Product::whereNot('slug', $product_slug)
+        ->select(['id','name','slug','product_price','product_off_price','short_discription',
+        'delivary','long_discription_up','short_discription_down','product_image','product_rating'])
+        ->limit(4)
+        ->get();
+        return view('frontend.pages.related_product',compact('product','related_product'));
+
+    }
+
 
 }
