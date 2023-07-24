@@ -21,3 +21,6 @@
 <!-- Template  JS -->
 <script src="{{asset('user')}}/assets/js/main.js?v=3.3"></script>
 <script src="{{asset('user')}}/assets/js/shop.js?v=3.3"></script>
+
+@stack('frontend_script')
+

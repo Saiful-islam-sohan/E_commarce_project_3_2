@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\LoginController;
 use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\ProductController;
+use App\Http\Controllers\frontend\CartController;
 use App\Http\Controllers\frontend\homeController;
 use App\Http\Controllers\shopeController;
 use Illuminate\Support\Facades\Route;
@@ -30,6 +31,9 @@ Route::get('/',[homeController::class,'home'])->name('home');
 Route::get('/shop',[shopeController::class,'index'])->name('shope.page');
 
 Route::get('/single product /{product_slug}',[homeController::class,'ProductDatiles'])->name('singleproduct');
+
+Route::get('/shoping-cart',[CartController::class,'cartPage'])->name('cartPage');
+Route::post('add-to-cart',[CartController::class,'addTocart'])->name('addTocart');
 
 
 });

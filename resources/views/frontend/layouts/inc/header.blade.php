@@ -41,7 +41,7 @@
         <div class="container">
             <div class="header-wrap">
                 <div class="logo logo-width-1">
-                    <a href="index.html"><img src="{{asset('user')}}/assets/imgs/logo/logo.png" alt="logo"></a>
+                    {{-- <a href="index.html"><img src="{{asset('user')}}/assets/imgs/logo/logo.png" alt="logo"></a> --}}
                 </div>
                 <div class="header-right">
                     <div class="search-style-1">
@@ -364,7 +364,7 @@
                                         <li><a href="#">Dashboard</a></li>
                                         <li><a href="#">Products</a></li>
                                         <li><a href="#">Categories</a></li>
-                                        <li><a href="#">Coupons</a></li>
+                                        <li><a href="{{route('cartPage')}}">Cart</a></li>
                                         <li><a href="#">Orders</a></li>
                                         <li><a href="#">Customers</a></li>
                                         <li><a href="#">Logout</a></li>
