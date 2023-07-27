@@ -19,7 +19,7 @@
                 <div class="col-lg-9">
                     <div class="shop-product-fillter">
                         <div class="totall-product">
-                            <p> We found <strong class="text-brand">235</strong> items for you!</p>
+                            <p> We found <strong class="text-brand">10</strong> items for you!</p>
                         </div>
                         <div class="sort-by-product-area">
                             <div class="sort-by-cover mr-10">
@@ -133,7 +133,7 @@
 
                         @foreach ($categories as $category )
 
-                        <li><a href="{{route('categoryWiselist',['product_slug'=>$category->slug])}}  {{$category->slug}}">{{$category->title}}</a></li>
+                        <li><a href="{{route('categoryWiselist',['id'=>$category->id])}}  {{$category->slug}}">{{$category->title}}</a></li>
                         @endforeach
 
 

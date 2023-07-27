@@ -6,6 +6,7 @@ use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\ProductController;
 use App\Http\Controllers\frontend\CartController;
+use App\Http\Controllers\frontend\CategoryWiseController;
 use App\Http\Controllers\frontend\homeController;
 use App\Http\Controllers\shopeController;
 use Illuminate\Support\Facades\Route;
@@ -34,6 +35,7 @@ Route::get('/single product /{product_slug}',[homeController::class,'ProductDati
 
 Route::get('/shoping-cart',[CartController::class,'cartPage'])->name('cartPage');
 Route::post('add-to-cart',[CartController::class,'addTocart'])->name('addTocart');
+Route::get('category-wise-list/{id}',[CategoryWiseController::class,'list'])->name('categoryWiselist');
 
 
 });
