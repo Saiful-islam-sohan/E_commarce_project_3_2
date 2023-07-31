@@ -3,6 +3,7 @@
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\LoginController;
 use App\Http\Controllers\backend\CategoryController;
+use App\Http\Controllers\backend\CouponController;
 use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\ProductController;
 use App\Http\Controllers\frontend\CartController;
@@ -57,6 +58,7 @@ Route::get('category-wise-list/{id}',[CategoryWiseController::class,'list'])->na
 
         Route::resource('categories',CategoryController::class);
         Route::resource('products',ProductController::class);
+        Route::resource('coupons',CouponController::class);
 
 
 
