@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\frontend;
 
-use App\Http\Controllers\Controller;
+use Cart;
 use App\Models\Product;
 use Illuminate\Http\Request;
-use Cart;
+use App\Http\Controllers\Controller;
+use Brian2694\Toastr\Facades\Toastr;
+use Gloudemans\Shoppingcart\Facades\Cart as FacadesCart;
 
 class CartController extends Controller
 {
@@ -40,5 +42,13 @@ class CartController extends Controller
         ]);
 
         return back();
+    }
+
+    public function removeFromCart($cart_id)
+    {
+            Cart::remove($cart_id);
+            Toastr::success('product remove from cart');
+            return back();
+
     }
 }

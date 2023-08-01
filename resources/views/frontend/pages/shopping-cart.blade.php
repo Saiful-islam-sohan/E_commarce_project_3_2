@@ -50,7 +50,12 @@
                                     <td class="text-right" data-title="Cart">
                                         <span>{{$cartitem->price*$cartitem->qty}}</span>
                                     </td>
-                                    <td class="action" data-title="Remove"><a href="#" class="text-muted"><i class="fi-rs-trash"></i></a></td>
+                                    {{-- shopping cart remove --}}
+
+                                    <td class="action" data-title="Remove"><a href="{{route('removeCart',['cart_id'=>$cartitem->rowId])}}" class="text-muted"><i class="fi-rs-trash"></i></a>
+
+
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>

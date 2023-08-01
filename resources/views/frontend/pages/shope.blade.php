@@ -133,7 +133,7 @@
 
                         @foreach ($categories as $category )
 
-                        <li><a href="{{route('categoryWiselist',['product_slug'=>$category->slug])}}  {{$category->slug}}">{{$category->title}}</a></li>
+                        <li><a href="{{route('categoryWiselist',['id'=>$category->id])}}  {{$category->slug}}">{{$category->title}}</a></li>
                         @endforeach
 
 
