@@ -6,8 +6,10 @@ use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\CouponController;
 use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\ProductController;
+use App\Http\Controllers\forntend\auth\RegisterController;
 use App\Http\Controllers\frontend\CartController;
 use App\Http\Controllers\frontend\CategoryWiseController;
+use App\Http\Controllers\frontend\CustomerDashboardController;
 use App\Http\Controllers\frontend\homeController;
 use App\Http\Controllers\shopeController;
 use Illuminate\Support\Facades\Route;
@@ -39,6 +41,24 @@ Route::post('add-to-cart',[CartController::class,'addTocart'])->name('addTocart'
 Route::get('remove-from-cart/{cart_id}',[CartController::class,'removeFromCart'])->name('removeCart');
 
 Route::get('category-wise-list/{id}',[CategoryWiseController::class,'list'])->name('categoryWiselist');
+
+
+// authentication use in customer
+
+Route::get('/register',[RegisterController::class,'RegisterPage'])->name('registerPage');
+Route::post('/register',[RegisterController::class,'RegisterStore'])->name('registerStore');
+Route::get('/login',[RegisterController::class,'loginPage'])->name('customerLogin.page');
+Route::post('/login store',[RegisterController::class,'loginStore'])->name('customerLoginStore');
+// Route::post('/register',[RegisterController::class,'RegisterStorePage'])->name('registerStore.page');
+
+Route::prefix('customer/')->middleware(['auth'])->group(function(){
+    Route::get('dashboard',[CustomerDashboardController::class,'CustomarDasboard'])->name('customerDasboard.page');
+    Route::get('/logout',[RegisterController::class,'logout'])->name('customer.logout');
+
+});
+
+
+
 
 
 

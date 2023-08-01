@@ -18,7 +18,9 @@ return new class extends Migration
             $table->unsignedInteger('role_id')->default(2);
             $table->unsignedInteger('is_system_admin')->default(0);
             $table->string('name');
+
             $table->string('email')->unique();
+            $table->string('phone')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
