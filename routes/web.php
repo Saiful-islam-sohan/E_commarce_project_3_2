@@ -51,7 +51,7 @@ Route::get('/login',[RegisterController::class,'loginPage'])->name('customerLogi
 Route::post('/login store',[RegisterController::class,'loginStore'])->name('customerLoginStore');
 // Route::post('/register',[RegisterController::class,'RegisterStorePage'])->name('registerStore.page');
 
-Route::prefix('customer/')->middleware(['auth'])->group(function(){
+Route::prefix('customer/')->middleware(['auth','is_customer'])->group(function(){
     Route::get('dashboard',[CustomerDashboardController::class,'CustomarDasboard'])->name('customerDasboard.page');
     Route::get('/logout',[RegisterController::class,'logout'])->name('customer.logout');
 
@@ -76,7 +76,7 @@ Route::prefix('customer/')->middleware(['auth'])->group(function(){
          Route::post('login',[LoginController::class,'login'])->name('admin.login');
          Route::get('logout',[LoginController::class,'logout'])->name('admin.logout');
 
-              Route::middleware(['auth'])->group(function(){
+              Route::middleware(['auth','is_admin'])->group(function(){
                   Route::get('dashboard',[DashboardController::class,'dashboard'])->name('admin.dashboard');
                });
 

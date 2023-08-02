@@ -363,7 +363,7 @@
                                 <li><a href="contact.html">Contact</a></li>
                                 <li><a href="#">My Account<i class="fi-rs-angle-down"></i></a>
                                     <ul class="sub-menu">
-                                        <li><a href="#">Dashboard</a></li>
+                                        <li><a href="{{route('customerDasboard.page')}}">Dashboard</a></li>
                                         <li><a href="#">Products</a></li>
                                         <li><a href="#">Categories</a></li>
                                         <li><a href="{{route('cartPage')}}">Cart</a></li>
