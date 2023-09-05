@@ -134,7 +134,7 @@
                         @foreach ($categories as $category )
 
                         <li><a href="{{route('categoryWiselist',['id'=>$category->id])}}  {{$category->slug}}">{{$category->title}}</a></li>
-                        @endforeach
+                         @endforeach
 
 
                         {{-- use the match of category --}}

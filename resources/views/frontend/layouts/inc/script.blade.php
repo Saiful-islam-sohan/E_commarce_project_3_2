@@ -22,5 +22,9 @@
 <script src="{{asset('user')}}/assets/js/main.js?v=3.3"></script>
 <script src="{{asset('user')}}/assets/js/shop.js?v=3.3"></script>
 
+<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+ <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+        {!! Toastr::message() !!}
+
 @stack('frontend_script')
 

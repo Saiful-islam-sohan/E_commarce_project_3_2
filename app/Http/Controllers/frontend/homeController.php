@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\frontend;
 
-use App\Http\Controllers\Controller;
-use App\Models\Category;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Database\Eloquent\Builder;
+
 
 class homeController extends Controller
 {
@@ -40,6 +42,26 @@ class homeController extends Controller
         ->limit(4)
         ->get();
         return view('frontend.pages.related_product',compact('product','related_product'));
+
+    }
+
+    public function nevDeatils()
+    {
+        $womens_fashons=Category::where('slug','pant')
+        ->orWhere('slug','dresses')
+        ->orWhere('slug','shirts')
+        ->orWhere('slug','hoodies')
+        ->orWhere('slug','prom')
+        ->orWhere('slug','cap')
+        ->limit(6)
+        ->select(['id','slug'])
+        ->get();
+
+        //return $womens_fashons;
+
+        return view('frontend.pages.widgets.navbar',compact('$womens_fashons'));
+
+        //return $womens;
 
     }
 

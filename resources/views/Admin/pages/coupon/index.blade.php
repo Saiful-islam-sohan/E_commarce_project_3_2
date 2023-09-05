@@ -56,11 +56,17 @@
                                     <i class="fas fa-edit"></i> Edit</a></li>
 
                                     <li>
+                                        <form action="{{route('coupons.destroy',$coupon->id)}}" method="post">
+                                            @csrf
+                                            @method('DELETE')
 
 
                                             <button class="dropdown-item show_confirm" type="submit"><i class="fas fa-trash"></i> Delete</a></button>
 
-                                    </li>
+
+
+                                        </form>
+                                        </li>
                                     </ul>
                                 </div>
                             </td>

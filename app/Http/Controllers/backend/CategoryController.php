@@ -85,7 +85,7 @@ class CategoryController extends Controller
 
       $this->image_upload($request,$category->id);
 
-      Toastr::success('category update successfully!');
+      Toastr::successs('category update successfully!');
       return redirect()->route('categories.index');
     }
 

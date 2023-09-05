@@ -46,6 +46,11 @@
                             <ul class="dropdown">
                                 <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Women's Fashion</a>
                                     <ul class="dropdown">
+                                          {{-- @foreach ($womens_fashons as $women )
+                                          <li><a href="product-details.html">{{$women->slug}}</a></li>
+
+                                          @endforeach --}}
+
                                         <li><a href="product-details.html">Dresses</a></li>
                                         <li><a href="product-details.html">Blouses & Shirts</a></li>
                                         <li><a href="product-details.html">Hoodies & Sweatshirts</a></li>
