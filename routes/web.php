@@ -9,6 +9,7 @@ use App\Http\Controllers\backend\ProductController;
 use App\Http\Controllers\forntend\auth\RegisterController;
 use App\Http\Controllers\frontend\CartController;
 use App\Http\Controllers\frontend\CategoryWiseController;
+use App\Http\Controllers\frontend\CheackoutController;
 use App\Http\Controllers\frontend\CustomerDashboardController;
 use App\Http\Controllers\frontend\homeController;
 use App\Http\Controllers\shopeController;
@@ -57,6 +58,9 @@ Route::post('/login store',[RegisterController::class,'loginStore'])->name('cust
 Route::prefix('customer/')->middleware(['auth','is_customer'])->group(function(){
     Route::get('dashboard',[CustomerDashboardController::class,'CustomarDasboard'])->name('customerDasboard.page');
     Route::get('/logout',[RegisterController::class,'logout'])->name('customer.logout');
+    Route::get('/cheackout',[CheackoutController::class,'cheackoutPage'])->name('customerCheackout.page');
+    Route::post('/placeorder',[CheackoutController::class,'placeOrder'])->name('customer.placeorder');
+    // Route::post('/orderConfirm',[CheackoutController::class,'orderConfirm'])->name('order');
 
 });
 

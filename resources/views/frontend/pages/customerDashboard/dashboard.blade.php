@@ -70,14 +70,19 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+
+                                                        @foreach ($ordershow as $show )
                                                         <tr>
-                                                            <td>#1357</td>
-                                                            <td>March 45, 2022</td>
+                                                            <td>#{{$show->order_id}}</td>
+                                                            <td>{{$show->updated_at->format('d M Y')}}</td>
                                                             <td>Processing</td>
-                                                            <td>$125.00 for 2 item</td>
+                                                            <td>${{$show->product_price*$show->product_qty}} for {{$show->product_qty}} item</td>
                                                             <td><a href="#" class="btn-small d-block">View</a></td>
                                                         </tr>
-                                                        <tr>
+                                                        @endforeach
+
+
+                                                        {{-- <tr>
                                                             <td>#2468</td>
                                                             <td>June 29, 2022</td>
                                                             <td>Completed</td>
@@ -90,7 +95,7 @@
                                                             <td>Completed</td>
                                                             <td>$280.00 for 3 item</td>
                                                             <td><a href="#" class="btn-small d-block">View</a></td>
-                                                        </tr>
+                                                        </tr> --}}
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -130,8 +135,12 @@
                                                     <h5 class="mb-0">Billing Address</h5>
                                                 </div>
                                                 <div class="card-body">
-                                                    <address>000 Interstate<br> 00 Business Spur,<br> Sault Ste. <br>Marie, MI 00000</address>
-                                                    <p>New York</p>
+
+                                                    @foreach ($billingshow as $billing)
+
+                                                    @endforeach
+                                                    <address>{{$billing->name}}<br> {{$billing->phone}},<br> {{$billing->address}}</address>
+                                                    <p>{{$billing->district}}</p>
                                                     <a href="#" class="btn-small">Edit</a>
                                                 </div>
                                             </div>
@@ -142,9 +151,11 @@
                                                     <h5 class="mb-0">Shipping Address</h5>
                                                 </div>
                                                 <div class="card-body">
-                                                    <address>4299 Express Lane<br>
-                                                        Sarasota, <br>FL 00000 USA <br>Phone: 1.000.000.0000</address>
-                                                    <p>Sarasota</p>
+                                                    @foreach ($billingshow as $billing)
+
+                                                    @endforeach
+                                                    <address>{{$billing->name}}<br> {{$billing->phone}},<br> {{$billing->address}}</address>
+                                                    <p>{{$billing->district}}</p>
                                                     <a href="#" class="btn-small">Edit</a>
                                                 </div>
                                             </div>
