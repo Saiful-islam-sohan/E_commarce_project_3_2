@@ -47,7 +47,7 @@ class homeController extends Controller
 
     public function nevDeatils()
     {
-        $womens_fashons=Category::where('slug','pant')
+        $womensfashons=Category::where('slug','pant')
         ->orWhere('slug','dresses')
         ->orWhere('slug','shirts')
         ->orWhere('slug','hoodies')
@@ -57,11 +57,13 @@ class homeController extends Controller
         ->select(['id','slug'])
         ->get();
 
-        //return $womens_fashons;
+        return view('frontend.layouts.inc.header',compact('womensfashons'));
 
-        return view('frontend.pages.widgets.navbar',compact('$womens_fashons'));
 
-        //return $womens;
+
+
+
+
 
     }
 

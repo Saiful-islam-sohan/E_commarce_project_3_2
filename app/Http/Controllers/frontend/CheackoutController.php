@@ -12,9 +12,9 @@ use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\OrderStoreRequest;
+use App\Mail\PurchaseConfirm;
 use Gloudemans\Shoppingcart\Facades\Cart;
-
-
+use Illuminate\Support\Facades\Mail;
 
 class CheackoutController extends Controller
 {
@@ -66,6 +66,10 @@ class CheackoutController extends Controller
     // forceDelete from cart table
     Cart::destroy();
     Session::forget('coupon');
+
+    $order = Order::whereId($order->id)->with(['billing', 'orderdetails'])->get();
+
+    Mail::to($request->email)->send(new PurchaseConfirm($order));
 
     Toastr::success('Your Order placed successfully!!!!','Success');
 
