@@ -57,6 +57,8 @@ class homeController extends Controller
         ->select(['id','slug'])
         ->get();
 
+         //return $womensfashons;
+
         return view('frontend.layouts.inc.header',compact('womensfashons'));
 
 

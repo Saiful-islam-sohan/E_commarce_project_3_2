@@ -45,7 +45,7 @@ Route::get('remove-from-cart/{cart_id}',[CartController::class,'removeFromCart']
 Route::get('category-wise-list/{id}',[CategoryWiseController::class,'list'])->name('categoryWiselist');
 //new add
 
-Route::get('/nav',[homeController::class,'nevDeatils'])->name('navList');
+// Route::get('/nav',[homeController::class,'nevDeatils'])->name('navList');
 
 
 // authentication use in customer

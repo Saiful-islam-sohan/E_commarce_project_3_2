@@ -41,7 +41,7 @@
         <div class="container">
             <div class="header-wrap">
                 <div class="logo logo-width-1">
-                    {{-- <a href="index.html"><img src="{{asset('user')}}/assets/imgs/logo/logo.png" alt="logo"></a> --}}
+                    <a href="{{route('home')}}"><img src="{{asset('user')}}/assets/imgs/logo/r1.jpg" alt="logo"></a>
                 </div>
                 <div class="header-right">
                     <div class="search-style-1">
@@ -314,6 +314,8 @@
                                                 <li><a href="product-details.html">Wedding Dresses</a></li>
                                                 <li><a href="product-details.html">Prom Dresses</a></li>
                                                 <li><a href="product-details.html">Cosplay Costumes</a></li>
+
+
                                             </ul>
                                         </li>
                                         <li class="sub-mega-menu sub-mega-menu-width-22">
@@ -378,7 +380,7 @@
                     </div>
                 </div>
                 <div class="hotline d-none d-lg-block">
-                    <p><i class="fi-rs-smartphone"></i><span>Toll Free</span> (+1) 0000-000-000 </p>
+                    <p><i class="fi-rs-smartphone"></i><span>Toll Free</span> (+0) 0000-000-000 </p>
                 </div>
                 <p class="mobile-promotion">Happy <span class="text-brand">Mother's Day</span>. Big Sale Up to 40%</p>
                 <div class="header-action-right d-block d-lg-none">
