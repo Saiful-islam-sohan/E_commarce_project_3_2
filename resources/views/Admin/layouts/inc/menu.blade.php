@@ -106,8 +106,8 @@
             </a>
           </li>
           <li class="menu-item">
-            <a href="layouts-blank.html" class="menu-link">
-              <div data-i18n="Blank">Blank</div>
+            <a href="{{route('payment.index')}}" class="menu-link">
+              <div data-i18n="Blank">Payment</div>
             </a>
           </li>
         </ul>

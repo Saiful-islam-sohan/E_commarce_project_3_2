@@ -3,11 +3,16 @@
 namespace App\Http\Controllers\frontend;
 
 use Cart;
+use Carbon\Carbon;
+use App\Models\Coupon;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Models\OrderDetails;
+use App\Models\Payment;
 use Brian2694\Toastr\Facades\Toastr;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Gloudemans\Shoppingcart\Facades\Cart as FacadesCart;
 
 class CartController extends Controller
@@ -55,4 +60,51 @@ class CartController extends Controller
             return back();
 
     }
+
+
+    public function payment(Request $request)
+    {
+           if(!Auth::check())
+           {
+            Toastr::error('You Must Login First!!');
+            return redirect()->route('customerLogin.page');
+
+           }
+           //dd($request->all());
+
+           $total_amount=OrderDetails::sum('product_price');
+
+           $check = Payment::where('payment_name', $request->payment_name)->first();
+          //dd($check);
+
+        if($check !=null){
+            // Check coupon validity
+            $check_validity =  $check->validity_till > Carbon::now()->format('Y-m-d');
+            // if coupon date is not expried
+            if($check_validity){
+               // check coupon discount type
+                Session::put('coupon', [
+                    'name' => $check->payment_name,
+                    //'discount_amount' => round((Cart::subtotalFloat() * $check->discount_amount)/100),
+                    'cart_total' => Cart::subtotal(),
+                    'balance' => round(Cart::subtotal() - (Cart::subtotal() * $check->payment_amount)/100)
+                ]);
+                Toastr::success('Payment Successfully Applied!!');
+                return redirect()->back();
+            }else{
+                Toastr::error('Payment Date Expire!!!', 'Info!!!');
+                return redirect()->back();
+            }
+        }else{
+            Toastr::error('Invalid Action/Payment! Check, Empty Cart');
+            return redirect()->back();
+        }
+
+
+
+
+    }
+
+
+
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\CouponController;
 use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\OrderController;
+use App\Http\Controllers\backend\PaymentController;
 use App\Http\Controllers\backend\ProductController;
 use App\Http\Controllers\forntend\auth\RegisterController;
 use App\Http\Controllers\frontend\CartController;
@@ -62,7 +63,8 @@ Route::prefix('customer/')->middleware(['auth','is_customer'])->group(function()
     Route::get('/cheackout',[CheackoutController::class,'cheackoutPage'])->name('customerCheackout.page');
     Route::post('/placeorder',[CheackoutController::class,'placeOrder'])->name('customer.placeorder');
     // Route::post('/orderConfirm',[CheackoutController::class,'orderConfirm'])->name('order');
-
+    //payment add
+     Route::post('/payment',[CartController::class,'payment'])->name('ApplyPament');
 });
 
 
@@ -91,6 +93,7 @@ Route::prefix('customer/')->middleware(['auth','is_customer'])->group(function()
         Route::resource('categories',CategoryController::class);
         Route::resource('products',ProductController::class);
         Route::resource('coupons',CouponController::class);
+        Route::resource('/payment',PaymentController::class);
         Route::get('/order_list',[OrderController::class,'index'])->name('orderList');
 
 
