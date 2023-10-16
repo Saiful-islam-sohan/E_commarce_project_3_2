@@ -17,12 +17,23 @@ class CustomerDashboardController extends Controller
         // $order_details=OrderDetails::select('user_id')->get();
 
         // $user_id=User::select('id')->get();
+        if (Auth::check()) {
+            // Get the user ID of the currently logged-in user
+            $user_id = Auth::user()->id;
+            //dd($user_id);
+        }
 
 
 
 
 
-        $ordershow=OrderDetails::select('user_id','order_id','product_qty','product_price','updated_at')->get();
+
+
+
+        $ordershow=OrderDetails::where('user_id',$user_id)
+        ->select('user_id','order_id','product_qty','product_price','updated_at')->get();
+              //dd($ordershow);
+
         $billingshow=Billing::select(['name','phone','district','address'])->get();
 
 

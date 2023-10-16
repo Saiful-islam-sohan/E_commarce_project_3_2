@@ -9,7 +9,7 @@
 <main class="main">
     @include('frontend.pages.widgets.slidbar')
 
-   @include('frontend.pages.widgets.featured')
+    @include('frontend.pages.widgets.featured')
 
     @include('frontend.pages.widgets.main_product')
     @include('frontend.pages.widgets.learn_more')
@@ -17,7 +17,7 @@
     @include('frontend.pages.widgets.offers')
    @include('frontend.pages.widgets.arrivales')
 
-   @include('frontend.pages.widgets.brand')
+   {{-- @include('frontend.pages.widgets.brand') --}}
 
 </main>
 

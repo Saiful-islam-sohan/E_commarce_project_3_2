@@ -73,7 +73,7 @@
 
                                                         @foreach ($ordershow as $show )
                                                         <tr>
-                                                            <td>#{{$show->order_id}}</td>
+                                                            <td>#{{$loop->index+1}}</td>
                                                             <td>{{$show->updated_at->format('d M Y')}}</td>
                                                             <td>Processing</td>
                                                             <td>${{$show->product_price*$show->product_qty}} for {{$show->product_qty}} item</td>

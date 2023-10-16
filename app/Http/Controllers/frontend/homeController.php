@@ -24,11 +24,16 @@ class homeController extends Controller
         'delivary','long_discription_up','short_discription_down','product_image','product_rating'])
         ->paginate(12);
 
+        $sels=Product::where('is_active',1)->latest('id')
+        ->select(['id','name','slug','product_price','product_off_price','short_discription',
+        'delivary','long_discription_up','short_discription_down','product_image','product_rating'])
+        ->paginate(8);
 
 
 
 
-        return view('frontend.pages.home',compact('categories','products'));
+
+        return view('frontend.pages.home',compact('categories','products','sels'));
     }
 
     public function ProductDatiles($product_slug){

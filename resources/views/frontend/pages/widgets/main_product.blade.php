@@ -4,14 +4,14 @@
         <div class="tab-header">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="nav-tab-one" data-bs-toggle="tab" data-bs-target="#tab-one" type="button" role="tab" aria-controls="tab-one" aria-selected="true">Featured</button>
+                    <button class="nav-link active" id="nav-tab-one" data-bs-toggle="tab" data-bs-target="#tab-one" type="button" role="tab" aria-controls="tab-one" aria-selected="true">Just For You</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="nav-tab-two" data-bs-toggle="tab" data-bs-target="#tab-two" type="button" role="tab" aria-controls="tab-two" aria-selected="false">Popular</button>
+                    <button class="nav-link" id="nav-tab-two" data-bs-toggle="tab" data-bs-target="#tab-two" type="button" role="tab" aria-controls="tab-two" aria-selected="false">Flash Sale</button>
                 </li>
-                <li class="nav-item" role="presentation">
+                {{-- <li class="nav-item" role="presentation">
                     <button class="nav-link" id="nav-tab-three" data-bs-toggle="tab" data-bs-target="#tab-three" type="button" role="tab" aria-controls="tab-three" aria-selected="false">New added</button>
-                </li>
+                </li> --}}
             </ul>
             <a href="#" class="view-more d-none d-md-flex">View More<i class="fi-rs-angle-double-small-right"></i></a>
         </div>
@@ -77,13 +77,54 @@
             <!--En tab one (Featured)-->
             <div class="tab-pane fade" id="tab-two" role="tabpanel" aria-labelledby="tab-two">
                 <div class="row product-grid-4">
+
+                    @foreach ($sels as $sel )
                     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6">
                         <div class="product-cart-wrap mb-30">
                             <div class="product-img-action-wrap">
                                 <div class="product-img product-img-zoom">
                                     <a href="product-details.html">
-                                        <img class="default-img" src="assets/imgs/shop/product-9-1.jpg" alt="">
-                                        <img class="hover-img" src="assets/imgs/shop/product-9-2.jpg" alt="">
+                                        <img class="default-img" src="{{asset('uploads/product_photos')}}/{{$sel->product_image}}"  alt="">
+                                        <img class="hover-img" src="{{asset('uploads/product_photos')}}/{{$sel->product_image}}"  alt="">
+                                    </a>
+                                </div>
+                                <div class="product-action-1">
+                                    <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
+                                    <a aria-label="Add To Wishlist" class="action-btn hover-up" href="wishlist.php"><i class="fi-rs-heart"></i></a>
+                                    <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i class="fi-rs-shuffle"></i></a>
+                                </div>
+                                <div class="product-badges product-badges-position product-badges-mrg">
+                                    <span class="hot">Hot</span>
+                                </div>
+                            </div>
+                            <div class="product-content-wrap">
+                                <div class="product-category">
+                                    <a href="shop.html">Donec </a>
+                                </div>
+                                <h2><a href="{{route('singleproduct',['product_slug' =>$product->slug])}}">{{$sel->name}}</a></h2>
+                                <div class="rating-result" title="90%">
+                                    <span>
+                                        <span>90%</span>
+                                    </span>
+                                </div>
+                                <div class="product-price">
+                                    <span>${{$sel->product_price}} </span>
+                                    <span class="old-price">$245.8</span>
+                                </div>
+                                <div class="product-action-1 show">
+                                    <a aria-label="Add To Cart" class="action-btn hover-up" href="{{route('singleproduct',['product_slug'=>$product->slug])}}"><i class="fi-rs-shopping-bag-add"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                    {{-- <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6">
+                        <div class="product-cart-wrap mb-30">
+                            <div class="product-img-action-wrap">
+                                <div class="product-img product-img-zoom">
+                                    <a href="product-details.html">
+                                        <img class="default-img" src="{{asset('user')}}/assets/imgs/shop/product-9-1.jpg" alt="">
+                                        <img class="hover-img" src="{{asset('user')}}/assets/imgs/shop/product-9-2.jpg" alt="">
                                     </a>
                                 </div>
                                 <div class="product-action-1">
@@ -115,13 +156,17 @@
                             </div>
                         </div>
                     </div>
+
+
+
+
                     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6">
                         <div class="product-cart-wrap mb-30">
                             <div class="product-img-action-wrap">
                                 <div class="product-img product-img-zoom">
                                     <a href="product-details.html">
-                                        <img class="default-img" src="assets/imgs/shop/product-10-1.jpg" alt="">
-                                        <img class="hover-img" src="assets/imgs/shop/product-10-2.jpg" alt="">
+                                        <img class="default-img" src="{{asset('user')}}/assets/imgs/shop/product-10-1.jpg" alt="">
+                                        <img class="hover-img" src="{{asset('user')}}/assets/imgs/shop/product-10-2.jpg" alt="">
                                     </a>
                                 </div>
                                 <div class="product-action-1">
@@ -158,8 +203,8 @@
                             <div class="product-img-action-wrap">
                                 <div class="product-img product-img-zoom">
                                     <a href="product-details.html">
-                                        <img class="default-img" src="assets/imgs/shop/product-11-1.jpg" alt="">
-                                        <img class="hover-img" src="assets/imgs/shop/product-11-2.jpg" alt="">
+                                        <img class="default-img" src="{{asset('user')}}/assets/imgs/shop/product-11-1.jpg" alt="">
+                                        <img class="hover-img" src="{{asset('user')}}/assets/imgs/shop/product-11-2.jpg" alt="">
                                     </a>
                                 </div>
                                 <div class="product-action-1">
@@ -196,8 +241,8 @@
                             <div class="product-img-action-wrap">
                                 <div class="product-img product-img-zoom">
                                     <a href="product-details.html">
-                                        <img class="default-img" src="assets/imgs/shop/product-12-1.jpg" alt="">
-                                        <img class="hover-img" src="assets/imgs/shop/product-12-2.jpg" alt="">
+                                        <img class="default-img" src="{{asset('user')}}/assets/imgs/shop/product-12-1.jpg" alt="">
+                                        <img class="hover-img" src="{{asset('user')}}/assets/imgs/shop/product-12-2.jpg" alt="">
                                     </a>
                                 </div>
                                 <div class="product-action-1">
@@ -234,8 +279,8 @@
                             <div class="product-img-action-wrap">
                                 <div class="product-img product-img-zoom">
                                     <a href="product-details.html">
-                                        <img class="default-img" src="assets/imgs/shop/product-13-1.jpg" alt="">
-                                        <img class="hover-img" src="assets/imgs/shop/product-13-2.jpg" alt="">
+                                        <img class="default-img" src="{{asset('user')}}/assets/imgs/shop/product-13-1.jpg" alt="">
+                                        <img class="hover-img" src="{{asset('user')}}/assets/imgs/shop/product-13-2.jpg" alt="">
                                     </a>
                                 </div>
                                 <div class="product-action-1">
@@ -272,8 +317,8 @@
                             <div class="product-img-action-wrap">
                                 <div class="product-img product-img-zoom">
                                     <a href="product-details.html">
-                                        <img class="default-img" src="assets/imgs/shop/product-14-1.jpg" alt="">
-                                        <img class="hover-img" src="assets/imgs/shop/product-14-2.jpg" alt="">
+                                        <img class="default-img" src="{{asset('user')}}/assets/imgs/shop/product-14-1.jpg" alt="">
+                                        <img class="hover-img" src="{{asset('user')}}/assets/imgs/shop/product-14-2.jpg" alt="">
                                     </a>
                                 </div>
                                 <div class="product-action-1">
@@ -310,8 +355,8 @@
                             <div class="product-img-action-wrap">
                                 <div class="product-img product-img-zoom">
                                     <a href="product-details.html">
-                                        <img class="default-img" src="assets/imgs/shop/product-15-1.jpg" alt="">
-                                        <img class="hover-img" src="assets/imgs/shop/product-15-2.jpg" alt="">
+                                        <img class="default-img" src="{{asset('user')}}/assets/imgs/shop/product-15-1.jpg" alt="">
+                                        <img class="hover-img" src="{{asset('user')}}/assets/imgs/shop/product-15-2.jpg" alt="">
                                     </a>
                                 </div>
                                 <div class="product-action-1">
@@ -347,8 +392,8 @@
                             <div class="product-img-action-wrap">
                                 <div class="product-img product-img-zoom">
                                     <a href="product-details.html">
-                                        <img class="default-img" src="assets/imgs/shop/product-1-1.jpg" alt="">
-                                        <img class="hover-img" src="assets/imgs/shop/product-1-2.jpg" alt="">
+                                        <img class="default-img" src="{{asset('user')}}/assets/imgs/shop/product-1-1.jpg" alt="">
+                                        <img class="hover-img" src="{{asset('user')}}/assets/imgs/shop/product-1-2.jpg" alt="">
                                     </a>
                                 </div>
                                 <div class="product-action-1">
@@ -376,7 +421,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                 <!--End product-grid-4-->
             </div>
@@ -388,7 +433,7 @@
                             <div class="product-img-action-wrap">
                                 <div class="product-img product-img-zoom">
                                     <a href="product-details.html">
-                                        <img class="default-img" src="assets/imgs/shop/product-2-1.jpg" alt="">
+                                        <img class="default-img" src="{{asset('user')}}/assets/imgs/shop/product-2-1.jpg" alt="">
                                         <img class="hover-img" src="assets/imgs/shop/product-2-2.jpg" alt="">
                                     </a>
                                 </div>

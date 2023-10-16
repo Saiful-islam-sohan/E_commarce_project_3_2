@@ -14,7 +14,10 @@ use App\Http\Controllers\frontend\CategoryWiseController;
 use App\Http\Controllers\frontend\CheackoutController;
 use App\Http\Controllers\frontend\CustomerDashboardController;
 use App\Http\Controllers\frontend\homeController;
+use App\Http\Controllers\frontend\RechargeController;
+use App\Http\Controllers\frontend\ResourceController;
 use App\Http\Controllers\shopeController;
+use App\Http\Requests\RechargeRequest;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -65,6 +68,11 @@ Route::prefix('customer/')->middleware(['auth','is_customer'])->group(function()
     // Route::post('/orderConfirm',[CheackoutController::class,'orderConfirm'])->name('order');
     //payment add
      Route::post('/payment',[CartController::class,'payment'])->name('ApplyPament');
+     Route::get('/recharge',[RechargeController::class,'recharge'])->name('RechargePayment');
+     //Route::get('/recharge_payment',[RechargeController::class,'RechagePayments'])->name('RequestPayment');
+     Route::post('/rechargeSrore',[RechargeController::class,'RechargeStore'])->name('RechargeStore');
+     Route::get('/findToken',[RechargeController::class,'FindToken'])->name('Findtoken');
+
 });
 
 

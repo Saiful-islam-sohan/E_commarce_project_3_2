@@ -8,9 +8,9 @@
                             <li>
                                 <a class="language-dropdown-active" href="#"> <i class="fi-rs-world"></i> English <i class="fi-rs-angle-small-down"></i></a>
                                 <ul class="language-dropdown">
-                                    <li><a href="#"><img src="{{asset('user')}}/assets/imgs/theme/flag-fr.png" alt="">Français</a></li>
-                                    <li><a href="#"><img src="{{asset('user')}}/assets/imgs/theme/flag-dt.png" alt="">Deutsch</a></li>
-                                    <li><a href="#"><img src="{{asset('user')}}/assets/imgs/theme/flag-ru.png" alt="">Pусский</a></li>
+                                    <li><a href="#"><img src="{{asset('user')}}/assets/imgs/theme/bn.jpg" alt="">Bangla</a></li>
+                                    {{-- <li><a href="#"><img src="{{asset('user')}}/assets/imgs/theme/flag-dt.png" alt="">Deutsch</a></li>
+                                    <li><a href="#"><img src="{{asset('user')}}/assets/imgs/theme/flag-ru.png" alt="">Pусский</a></li> --}}
                                 </ul>
                             </li>
                         </ul>
@@ -20,9 +20,9 @@
                     <div class="text-center">
                         <div id="news-flash" class="d-inline-block">
                             <ul>
-                                <li>Get great devices up to 50% off <a href="shop.html">View details</a></li>
+                                <li>the mobile and phone up to 50% off <a href="shop.html">View details</a></li>
                                 <li>Supper Value Deals - Save more with coupons</li>
-                                <li>Trendy 25silver jewelry, save up 35% off today <a href="shop.html">Shop now</a></li>
+                                <li>phone t-shirt watch, save up 10% off today <a href="shop.html">Shop now</a></li>
                             </ul>
                         </div>
                     </div>
@@ -117,7 +117,7 @@
                 <div class="header-nav d-none d-lg-flex">
                     <div class="main-categori-wrap d-none d-lg-block">
                         <a class="categori-button-active" href="#">
-                            <span class="fi-rs-apps"></span> Browse Categories
+                            <span class="fi-rs-apps"></span>  All
                         </a>
                         <div class="categori-dropdown-wrap categori-dropdown-active-large">
                             <ul>
@@ -299,10 +299,10 @@
                     <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block">
                         <nav>
                             <ul>
-                                <li><a class="active" href="/">Home </a></li>
-                                <li><a href="about.html">About</a></li>
+                                <li><a class="active" href="/">Today's Deals </a></li>
+                                {{-- <li><a href="about.html">About</a></li> --}}
                                 <li><a href="{{route('shope.page')}}">Shop</a></li>
-                                <li class="position-static"><a href="#">Our Collections <i class="fi-rs-angle-down"></i></a>
+                                <li class="position-static"><a href="#">All Category<i class="fi-rs-angle-down"></i></a>
                                     <ul class="mega-menu">
                                         <li class="sub-mega-menu sub-mega-menu-width-22">
                                             <a class="menu-title" href="#">Women's Fashion</a>
@@ -362,16 +362,17 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a href="blog.html">Blog </a></li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="blog.html">Customer Service </a></li>
+                                <li><a href="contact.html">Gift Cards</a></li>
                                 <li><a href="#">My Account<i class="fi-rs-angle-down"></i></a>
                                     <ul class="sub-menu">
                                         <li><a href="{{route('customerDasboard.page')}}">Dashboard</a></li>
-                                        <li><a href="#">Products</a></li>
+                                        <li><a href="">Products</a></li>
                                         <li><a href="#">Categories</a></li>
                                         <li><a href="{{route('cartPage')}}">Cart</a></li>
                                         <li><a href="{{route('customerCheackout.page')}}">Orders</a></li>
-                                        <li><a href="#">Customers</a></li>
+                                        <li><a href="{{route('RechargePayment')}}">Recharge payment</a></li>
+                                        <li><a href="{{route('Findtoken')}}">Payment Code List</a></li>
                                         <li><a href="#">Logout</a></li>
                                     </ul>
                                 </li>
@@ -379,8 +380,8 @@
                         </nav>
                     </div>
                 </div>
-                <div class="hotline d-none d-lg-block">
-                    <p><i class="fi-rs-smartphone"></i><span>Toll Free</span> (+0) 0000-000-000 </p>
+                <div class="d-none d-lg-block">
+                    <p><i class="fi-rs-smartphone"></i><span></span> Help Center</p>
                 </div>
                 <p class="mobile-promotion">Happy <span class="text-brand">Mother's Day</span>. Big Sale Up to 40%</p>
                 <div class="header-action-right d-block d-lg-none">
